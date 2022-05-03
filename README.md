@@ -1,4 +1,4 @@
-###New todo app made with React.js
+### New todo app made with React.js
 
 
 <img src="./Screenshots/Initial.png" alt="Markdown Monster icon" style="margin-right: 10px;" />
