@@ -10,7 +10,8 @@ function NoteItem(props) {
           [i]: !prevState[i]
         }));
     }
-    return <li key={props.id} onDoubleClick={() => strikethroughNote(props.id)} style={initial[`${props.id}`] ? {textDecoration: 'line-through'} : {textDecoration: 'none'}}>{props.text}</li>
+    return <li key={props.id} onDoubleClick = {() => {props.onDoubleClick(props.id)}} 
+    onClick={() => strikethroughNote(props.id)} style={initial[`${props.id}`] ? {textDecoration: 'line-through'} : {textDecoration: 'none'}}>{props.text}</li>
 }
 
 export default NoteItem
