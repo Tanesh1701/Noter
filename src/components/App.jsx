@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import NoteItem from "./Note";
+import InputArea from "./Input";
 
 function App() {
-  const [inputText, setInput] = useState('');
   const [notes, setNotes] = useState(() => {
     const savednotes = localStorage.getItem("notes");
     if (savednotes) {
@@ -17,16 +17,10 @@ function App() {
     localStorage.setItem('notes', JSON.stringify(notes));
   }, [notes]);
 
-  function handleChange(event) {
-    const newValue = event.target.value;
-    setInput(newValue);
-  }
-
-  function addNote() {
+  function addNote(inputText) {
     setNotes((prevValues) => {
       return [...prevValues, inputText]
     });
-    setInput("");
   }
 
   function deleteNote(id) {
@@ -42,12 +36,9 @@ function App() {
       <div className="heading">
         <h1>To-Do List</h1>
       </div>
-      <div className="form">
-        <input type="text" value={inputText} onChange = {handleChange}/>
-        <button onClick={addNote}>
-          <span>Add</span>
-        </button>
-      </div>
+      <InputArea
+        onClick = {addNote}
+      />
       <div>
         <ul>
           {notes.map((note, id) => <NoteItem
