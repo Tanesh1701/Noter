@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
+import NoteItem from "./Note";
 
 function App() {
   const [inputText, setInput] = useState('');
-  const [initial, setState] = useState(true);
   const [notes, setNotes] = useState(() => {
     const savednotes = localStorage.getItem("notes");
     if (savednotes) {
@@ -29,13 +29,6 @@ function App() {
     setInput("");
   }
 
-  function strikethroughNote(i) {
-    setState(prevState => ({
-      ...initial,
-      [i]: !prevState[i]
-    }));
-  }
-
   return (
     <div className="container">
       <div className="heading">
@@ -49,7 +42,10 @@ function App() {
       </div>
       <div>
         <ul>
-          {notes.map((note, id) => <li key={id} onDoubleClick={() => strikethroughNote(id)} style={initial[`${id}`] ? {textDecoration: 'line-through'} : {textDecoration: 'none'}}>{note}</li>)}
+          {notes.map((note, id) => <NoteItem
+            key={id}
+            text = {note}
+          />)}
         </ul>
       </div>
     </div>
