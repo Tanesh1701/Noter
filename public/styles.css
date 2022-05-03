@@ -7,9 +7,9 @@ body {
   justify-content: center;
   align-items: center;
   color: hsl(198, 1%, 29%);
-  font-family: "Architects Daughter", cursive;
+  font-family: 'Roboto', sans-serif;
   text-align: center;
-  font-size: 130%;
+  font-size: 18px;
 }
 
 .container {
@@ -48,7 +48,7 @@ body {
   border-bottom-left-radius: 3px 15px;
   border: solid 3px transparent;
   border-bottom: dashed 3px #fdcb6e;
-  font-family: "Architects Daughter", cursive;
+  font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   color: hsla(260, 2%, 25%, 0.7);
   width: 70%;
@@ -58,7 +58,7 @@ body {
 button {
   padding: 0;
   border: none;
-  font-family: "Architects Daughter", cursive;
+  font-family: 'Roboto', sans-serif;
   text-decoration: none;
   padding-bottom: 3px;
   border-radius: 5px;
@@ -88,4 +88,6 @@ li {
   text-align: left;
   position: relative;
   padding: 0.5rem;
+  user-select: none;
+  cursor: pointer;
 }
