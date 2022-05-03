@@ -29,6 +29,14 @@ function App() {
     setInput("");
   }
 
+  function deleteNote(id) {
+    setNotes((prevValues) => {
+      return prevValues.filter((item, index) => {
+        return index !== id
+      })
+    })
+  }
+
   return (
     <div className="container">
       <div className="heading">
@@ -44,7 +52,9 @@ function App() {
         <ul>
           {notes.map((note, id) => <NoteItem
             key={id}
+            id = {id}
             text = {note}
+            onDoubleClick = {deleteNote}
           />)}
         </ul>
       </div>
